@@ -21,6 +21,9 @@ def pascal_triangle(num: int):
 if __name__ == '__main__':
     try:
         number = int(input())
+        if number <= 0:
+            print(f'Incorrect input data')
+            exit(1)
         pascal_triangle(number)
     except ValueError:
         print(f'Natural number was expected')
