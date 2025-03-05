@@ -12,15 +12,18 @@ def check_input(string_to_check: str) -> bool:
 def convert_to_float(string_to_convert: str) -> float:
     parts = list(map(int, string_to_convert.split('.')))
     converted = int(parts[0])
-    fraction = int(parts[1])
 
-    while fraction > 1:
-        fraction /= 10
+    if len(parts) > 1:
+        fraction = int(parts[1])
+        while fraction > 1:
+            fraction /= 10
 
-    if converted < 0:
-        return converted - fraction
+        if converted < 0:
+            return converted - fraction
 
-    return converted + fraction
+        return converted + fraction
+    
+    return converted
 
 
 if __name__ == '__main__':
